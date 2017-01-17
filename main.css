@@ -1,0 +1,116 @@
+body {
+  background-color: #ccf1fc;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  font-family: Play;
+  color: white;
+}
+
+/* Navigation Bar */
+.navbar-default {
+  background: rgba(125, 18, 26, 0.9);
+  border: 0;
+}
+
+.navbar-collapse {
+  text-align: left;
+}
+
+.nav.navbar-nav.navbar-right li a {
+  color: white;
+}
+
+.nav.navbar-nav.navbar-right li a:hover {
+  color: #ccf1fc;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #ccf1fc;
+}
+
+/* Content */
+#content {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.content-logo {
+  width: 90%;
+  margin-bottom: 50px;
+}
+
+
+
+/* Footer */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 90px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 90px;
+  
+  background: rgba(125, 18, 26, 0.9);
+  text-align: center;
+}
+
+.footer-content {
+	margin-top: 10px;
+}
+
+.footer-content a {
+	margin: auto 14px;
+	color: #ccf1fc;
+}
+
+.footer-content a:hover {
+	color: #1BCBFF;
+}
+
+.footer p {
+  margin-top: 10px;
+}
+
+/* Extra */
+.art-bar {
+  width: 150px;
+  height: 3px;
+  background: #006EC4;
+	
+  margin: auto;
+  margin-bottom: 60px;
+}
+
+h1, h2 {
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.margin-100 {
+  margin-bottom: 100px;
+}
