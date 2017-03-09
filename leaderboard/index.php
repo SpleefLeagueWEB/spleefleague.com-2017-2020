@@ -45,7 +45,8 @@
       </div>
     </nav>
     <!-- ---- -->
-    
+
+
     <!-- Content -->
     <div class="container" id="content">
       <div class="row">
@@ -55,7 +56,9 @@
       </div>
     </div>
     <!-- ---- -->
-    
+        <div class="alert alert-warning">
+        <strong>Notice!</strong> The SpleefLeague API is currently down.
+    </div>
     <!-- Leaderboard -->
     <div class="container" id="leaderboard">
       <div class="row">

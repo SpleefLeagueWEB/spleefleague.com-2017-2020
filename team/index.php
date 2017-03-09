@@ -45,7 +45,7 @@
       </div>
     </nav>
     <!-- ---- -->
-    
+
     <!-- Content -->
     <div class="container" id="content">
       <div class="row">
@@ -55,7 +55,9 @@
       </div>
     </div>
     <!-- ---- -->
-    
+    <div class="alert alert-warning">
+        <strong>Notice!</strong> The SpleefLeague API is currently down.
+    </div>
     <!-- Users -->
     <div class="container-fluid" id="users">
       <div class="row">
@@ -122,8 +124,8 @@
       </div>
     </footer>
 	<!-- ----------- -->
-    
-    
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="team.js"></script>
 	<script src="../js/bootstrap.min.js"></script>

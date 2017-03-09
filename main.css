@@ -2,12 +2,23 @@ body {
   background-color: #ccf1fc;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
   
   font-family: Play;
   color: white;
 }
 
 /* Navigation Bar */
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+  background-color: #711118;
+    color: white !important;
+}
+.nav.navbar-nav.navbar-right li a{
+    background-color: #711118;
+}
+.dropdown-menu{
+    background-color: #711118;
+}
 .navbar-default {
   background: rgba(125, 18, 26, 0.9);
   border: 0;

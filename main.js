@@ -10,7 +10,7 @@ if (7 <= currentTime && currentTime < 19) {
 $(document).ready(function () {
   var interval = 1000;   //number of mili seconds between each call
   var refresh = function() {
-    $.getJSON("https://mcapi.ca/query/sl.mylesm.uk/players",function(json){
+    $.getJSON("https://mcapi.ca/query/box.spleefleague.com/players",function(json){
       if (json.status !== true) {
         // error
 		$("#players .p1").text('The server is Offline').addClass('server-error');
