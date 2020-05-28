@@ -1,9 +1,13 @@
 <?php
 $welcomeBack = true; //false for message below
-$message = "SpleefLeague is Back!"; //welcomeBack must = true
+$message = "kekW"; //welcomeBack must = true
 
 //Homepage Notice//
 $hEnabled = false; //True/False
-$hType = "Warning"; //Success/Info/Warning/Danger see https://www.w3schools.com/bootstrap/bootstrap_alerts.asp
-$hBold = "Hello!"; //The first bold word see https://www.w3schools.com/bootstrap/bootstrap_alerts.asp
-$hMessage = "I like memes"; // The main message
+$hType = "Info"; //Success/Info/Warning/Danger see https://www.w3schools.com/bootstrap/bootstrap_alerts.asp
+$hBold = ""; //The first bold word see https://www.w3schools.com/bootstrap/bootstrap_alerts.asp
+$hMessage = "hello github"; // The main message
+
+//Seasonal Features//
+$snow = false; //Displays snow on the site
+$fireworks =  false; //Displays fireworks on the site

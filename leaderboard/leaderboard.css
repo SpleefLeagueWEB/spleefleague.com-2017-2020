@@ -9,32 +9,6 @@ body {
   color: white;
 }
 
-/* Navigation Bar */
-.navbar-default {
-  background: rgba(125, 18, 26, 0.9);
-  border: 0;
-}
-
-.navbar-collapse {
-  text-align: left;
-}
-
-.nav.navbar-nav.navbar-right li a {
-  color: white;
-}
-
-.nav.navbar-nav.navbar-right li a:hover {
-  color: #ccf1fc;
-}
-
-.navbar-default .navbar-brand {
-  color: white;
-}
-
-.navbar-default .navbar-brand:hover {
-  color: #ccf1fc;
-}
-
 /* Content */
 #content {
   text-align: center;

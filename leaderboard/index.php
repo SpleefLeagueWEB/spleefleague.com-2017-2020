@@ -1,143 +1,169 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>SpleefLeague</title>
-    
-    <!-- CSS -->
+<head>
+    <?php
+    $pageTitle = "Leaderboard";
+    include "../inc/header.php";
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    ?>
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="leaderboard.css" rel="stylesheet">
-    
-    <!-- Links -->
-	<link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
-	<script src="https://use.fontawesome.com/4d6492861a.js"></script>
-    <link rel="alternate" href="http://spleefleague.com" hreflang="en"/>
-    <link href="../favicon.ico" rel="icon">
-  </head>
-  
-  <body>
-    
+    <link href="../assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
 <?php include '../inc/navbar.php'; ?>
 
-    <!-- Content -->
-    <div class="container" id="content">
-      <div class="row">
+<!-- Content -->
+<div class="container" id="content">
+    <div class="row">
         <div class="col-md-12">
-          <img src="../assets/img/logo.png" class="content-logo">
+            <img src="../assets/img/logo.png" class="content-logo">
         </div>
-      </div>
     </div>
-    <!-- ---- -->
-        <div class="alert alert-warning">
-        <strong>Notice!</strong> The SpleefLeague API is currently down.
-    </div>
-    <!-- Leaderboard --
-    <div class="container" id="leaderboard">
-      <div class="row">
+</div>
+<!-- ---- -->
+
+<!-- Leaderboard -->
+<div class="container" id="leaderboard">
+    <div class="row">
         <div class="col-md-12">
-          
-          <ul class="nav nav-tabs">
-            <li class="active"><a href="#Spleef" data-toggle="tab">Spleef</a></li>
-            <li><a href="#SJ" data-toggle="tab">SuperJump</a></li>
-          </ul>
 
-          <div class="tab-content">
-            <div class="tab-pane active" id="Spleef">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Rank</th>
-                    <th>Skin</th>
-                    <th>Username</th>
-                    <th>Rating</th>
-                  </tr>
-                </thead>
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#Spleef" data-toggle="tab">Spleef</a></li>
+                <li><a href="#SJ" data-toggle="tab">SuperJump</a></li>
+            </ul>
 
-                <tbody>
-
-
-                        <?php /*
-                        $url = "http://api.spleefleague.com/leaderboard/spleef";
+            <div class="tab-content">
+                <div class="tab-pane active" id="Spleef">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Skin</th>
+                            <th>Username</th>
+                            <th>Snow Spleef Rating</th>
+                            <th>Team Spleef Rating</th>
+                            <th>Power Spleef Rating</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $api = "https://api.spleefleague.com/leaderboard/spleef";
 
                         $ch = curl_init();
-                        curl_setopt($ch, CURLOPT_URL, $url);
+                        curl_setopt($ch, CURLOPT_URL, $api);
                         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
                         $json_output = curl_exec($ch);
                         $output = json_decode($json_output);
 
+
                         for ($i = 0; $i < 50; $i++) {
+                            //Needed due to April update adding PowerSpleef and Classic Spleef
+                            $classicRatingArray = json_encode($output->players[$i]->rating);
+                            $classicRating = json_decode($classicRatingArray);
+
                             $username = $output->players[$i]->username;
-                            $rating = $output->players[$i]->rating;
                             $rank = $output->players[$i]->rank;
+                            $uuid = $output->players[$i]->uuid;
+
+                            //Checking if player has played Power Spleef or not
+                            $SSpos = array_search('CLASSIC', array_column($classicRating, 'mode'));
+                            $SSrating = $classicRating[$SSpos]->rating;
+
+                            if (array_search('TEAM', array_column($classicRating, 'mode')) !== false) {
+                                $TSpos = array_search('TEAM', array_column($classicRating, 'mode'));
+                                $TSrating = $classicRating[$TSpos]->rating;
+                            } else {
+                                $TSrating = "Not Played";
+                            }
+
+                            if (array_search('POWER', array_column($classicRating, 'mode')) !== false) {
+                                $PSpos = array_search('POWER', array_column($classicRating, 'mode'));
+                                $PSrating = $classicRating[$PSpos]->rating;
+                            } else {
+                                $PSrating = "Not Played";
+                            }
+
+
+
 
                             echo '<tr>';
                             echo '<td>', $rank, '</td>';
-                            echo '<td>', '<img src="https://minotar.net/helm/', $username, '/30.png"/>', '</td>';
+                            echo '<td>', '<img src="https://crafatar.com/avatars/', $uuid, '?size=30&overlay"/>', '</td>';
                             echo '<td>', $username, '</td>';
-                            echo '<td>', $rating, '</td>';
+                            echo '<td>', $SSrating, '</td>';
+                            echo '<td>', $TSrating, '</td>';
+                            echo '<td>', $PSrating, '</td>';
                             echo '</tr>';
                         }
                         ?>
+                        </tbody>
+                    </table>
+                </div>
 
-                </tbody>
-              </table>
-              </div>
+                <div class="tab-pane" id="SJ">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Skin</th>
+                            <th>Username</th>
+                            <th>Rating</th>
+                        </tr>
+                        </thead>
 
-              <div class="tab-pane" id="SJ">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Rank</th>
-                      <th>Skin</th>
-                      <th>Username</th>
-                      <th>Rating</th>
-                    </tr>
-                  </thead>
-                  
-                  <tbody>
+                        <tbody>
+                        <?php
+                        $SJ = "https://api.spleefleague.com/leaderboard/SJ";
+
+                        $ch = curl_init();
+                        curl_setopt($ch, CURLOPT_URL, $SJ);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                        $json_output = curl_exec($ch);
+                        $output = json_decode($json_output);
+
+                        for ($i = 0;
+                        $i < 50;
+                        $i++) {
+
+                        //Needed due to April update adding PowerSpleef and Classic Spleef which affects SJ apparently
+                        $SJratingArray = json_encode($output->players[$i]->rating);
+                        $SJRating = json_decode($SJratingArray);
+
+                        $username = $output->players[$i]->username;
+                        $rating = $SJRating[0]->rating;
+                        $rank = $output->players[$i]->rank;
+                        $uuid = $output->players[$i]->uuid;
 
 
-                      <?php
-                      $SJ = "http://api.spleefleague.com/leaderboard/SJ";
+                        echo '<tr>';
+                        echo '<td>', $rank, '</td>';
+                        echo '<td>', '<img src="https://crafatar.com/avatars/', $uuid, '?size=30&overlay"/>', '</td>';
+                        echo '<td>', $username, '</td>';
+                        echo '<td>', $rating, '</td>';
+                        echo '</tr>';
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
 
-                      $ch = curl_init();
-                      curl_setopt($ch, CURLOPT_URL, $SJ);
-                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-                      $json_output = curl_exec($ch);
-                      $output = json_decode($json_output);
-
-                      for ($i = 0; $i < 50; $i++) {
-                          $username = $output->players[$i]->username;
-                          $rating = $output->players[$i]->rating;
-                          $rank = $output->players[$i]->rank;
-
-                          echo '<tr>';
-                          echo '<td>', $rank, '</td>';
-                          echo '<td>', '<img src="https://minotar.net/helm/', $username, '/30.png"/>', '</td>';
-                          echo '<td>', $username, '</td>';
-                          echo '<td>', $rating, '</td>';
-                          echo '</tr>';
-                      }
-                    */  ?>
-
-                  </tbody>
-                </table>
-              </div>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
-    <!-- ---- -->
-    
-<?php include '../inc/footer.php';  ?>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="leaderboard.js"></script>
-	<script src="../assets/js/bootstrap.min.js"></script>
-  </body>
+</div>
+<!-- ---- -->
+
+<?php include '../inc/footer.php'; ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="leaderboard.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+</body>
 </html>

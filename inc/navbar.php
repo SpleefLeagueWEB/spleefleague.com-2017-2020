@@ -17,9 +17,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/forums">Forums</a></li>
                 <li><a href="https://discord.gg/B9a6yj9">Discord</a></li>
-                <li><a href="/soon">Team</a></li>
-                <li><a href="/soon">Leaderboard</a></li>
-                <li><a href="http://store.spleefleague.com/">Store</a></li>
+            <!--   <li><a href="/team">Staff Team</a></li>
+                <li><a href="/leaderboard">Leaderboard</a></li> -->
+                <li><a href="http://newspleefleague.buycraft.net/">Store</a></li>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Resources
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -29,6 +29,7 @@
                                 for Builder</a></li>
                         <li><a href="https://spleefleague.com/forums/link-forums/moderator-application.49/">Apply for
                                 Staff</a></li>
+                        <li><a href="https://api.spleefleague.com">API</a></li>
                     </ul>
                 </li>
             </ul>

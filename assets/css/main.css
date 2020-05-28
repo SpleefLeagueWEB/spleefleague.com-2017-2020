@@ -1,22 +1,32 @@
+html {
+    font-family: Play !important;
+    color: white;
+    position: relative;
+    min-height: 100%;
+}
+
 body {
-    background-color: #ccf1fc;
+    background-color: rgba(0, 0, 0, 0.15);
+    background-blend-mode: darken;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: Play;
+    margin-bottom: 90px;
     color: white;
 }
-.nav.navbar-nav.navbar-right li a:hover{
+
+.nav.navbar-nav.navbar-right li a:hover {
     color: white !important;
 }
 
-.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
     background-color: rgba(80, 17, 21, 0.9) !important;
 }
 
-.row{
+.row {
     line-height: 10px !important;
 }
+
 /* Navigation Bar */
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
     background: rgba(125, 18, 26, 0.9) !important;
@@ -64,26 +74,17 @@ body {
 
 .content-logo {
     width: 90%;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
-/* Footer */
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    margin-bottom: 90px;
-}
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 90px;
-
-    background: rgba(125, 18, 26, 0.9);
+    /*    position: absolute;
+        bottom: 0;
+        width: 100%;*/
+    height: 70px;
+    background: rgb(125, 18, 26);
+    background: linear-gradient(145deg, rgba(125, 18, 26, 0.95) 0%, rgba(88, 13, 19, 0.95) 19%, rgba(24, 4, 5, 0.95) 100%);
     text-align: center;
 }
 
@@ -93,11 +94,11 @@ body {
 
 .footer-content a {
     margin: auto 14px;
-    color: #ccf1fc;
+    color: #ffffff;
 }
 
 .footer-content a:hover {
-    color: #1BCBFF;
+    color: #9e9d9c;
 }
 
 .footer p {
@@ -109,13 +110,13 @@ body {
     width: 150px;
     height: 3px;
     background: #006EC4;
-
     margin: auto;
     margin-bottom: 60px;
 }
 
 h1, h2 {
     font-weight: bold;
+    margin-top: 10px;
 }
 
 p {
@@ -123,15 +124,36 @@ p {
 }
 
 a {
-    color: black;
+    color: inherit;
     text-decoration: none;
 }
 
 a:hover {
-    color: black;
+    filter: brightness(85%);
     text-decoration: none;
+    color: inherit;
 }
 
 .margin-100 {
     margin-bottom: 100px;
+}
+
+.icons {
+    text-align: center;
+    margin-top: 225px !important;
+}
+
+.icons {
+    font-size: 100px !important;
+    color: #ffffff;
+    text-shadow: 3px 5px #0f0f0f;
+}
+
+.fa-text {
+    font-size: 56px !important;
+    color: #ffffff;
+    text-shadow: 3px 5px #0f0f0f;
+}
+.text-muted{
+    color: #a4a4a4;
 }

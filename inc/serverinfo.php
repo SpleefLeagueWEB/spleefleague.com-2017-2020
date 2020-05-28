@@ -1,7 +1,12 @@
 <?php
 
-$json = 'https://use.gameapis.net/mc/query/players/box.spleefleague.com';
+$json = 'https://mcapi.us/server/status?ip=box.spleefleague.com';
 $content = file_get_contents($json);
 $json = json_decode($content, true);
 
-$online = $json['players']['online'];
+
+if (isset($json['online'])){
+    $online = "Players Online: " . $json['players']['now'];
+} else {
+    $online = "The server is currently offline!";
+}
