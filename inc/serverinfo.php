@@ -1,6 +1,6 @@
 <?php
 
-$json = 'https://mcapi.us/server/status?ip=box.spleefleague.com';
+$json = 'https://mcapi.us/server/status?ip=play.spleefleague.com';
 $content = file_get_contents($json);
 $json = json_decode($content, true);
 
